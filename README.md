@@ -199,8 +199,6 @@ This project is open source and available for learning and development purposes.
 
 ---
 
-## 🙏 Acknowledgments
+## 📞 Contact
 
-* Movie data provided by **TMDb (The Movie Database)**
-* Built using **Flutter & Dart**
-* Thanks to the **Flutter open-source community**
+If you have any questions, feedback, or suggestions, feel free to get in touch. I’m happy to help!
