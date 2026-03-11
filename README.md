@@ -177,19 +177,19 @@ Contributions are welcome! Feel free to fork the repository and submit pull requ
 
 ## 📷 Screenshots
 
-<div align="center">
-  <img src="screenshots/screenshot1.png" width="220" style="margin:10px;">
-  <img src="screenshots/screenshot2.png" width="220" style="margin:10px;">
-  <img src="screenshots/screenshot3.png" width="220" style="margin:10px;">
-  <img src="screenshots/screenshot4.png" width="220" style="margin:10px;">
-</div>
+<p align="center">
+  <img src="screenshots/Screenshot1.png" width="220">
+  <img src="screenshots/Screenshot2.png" width="220">
+  <img src="screenshots/Screenshot3.png" width="220">
+  <img src="screenshots/Screenshot4.png" width="220">
+</p>
 
-<div align="center">
-  <img src="screenshots/screenshot5.png" width="220" style="margin:10px;">
-  <img src="screenshots/screenshot6.png" width="220" style="margin:10px;">
-  <img src="screenshots/screenshot7.png" width="220" style="margin:10px;">
-  <img src="screenshots/screenshot8.png" width="220" style="margin:10px;">
-</div>
+<p align="center">
+  <img src="screenshots/Screenshot5.png" width="220">
+  <img src="screenshots/Screenshot6.png" width="220">
+  <img src="screenshots/Screenshot7.png" width="220">
+  <img src="screenshots/Screenshot8.png" width="220">
+</p>
 
 
 ---
