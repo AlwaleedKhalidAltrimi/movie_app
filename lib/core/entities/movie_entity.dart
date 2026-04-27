@@ -1,4 +1,6 @@
-class MovieEntity {
+import 'package:equatable/equatable.dart';
+
+class MovieEntity extends Equatable {
   final int movieId;
   final String name;
   final String image;
@@ -24,11 +26,14 @@ class MovieEntity {
   }
 
   @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    return other is MovieEntity && other.movieId == movieId;
-  }
-
-  @override
-  int get hashCode => movieId.hashCode;
+  List<Object?> get props => [
+        movieId,
+        name,
+        image,
+        description,
+        rating,
+        ratingCount,
+        releaseDate,
+        language,
+      ];
 }
