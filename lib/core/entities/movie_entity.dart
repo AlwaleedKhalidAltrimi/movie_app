@@ -10,7 +10,7 @@ class MovieEntity extends Equatable {
   final String releaseDate;
   final String language;
 
-  MovieEntity({
+  const MovieEntity({
     required this.movieId,
     required this.name,
     required this.image,
