@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
+import 'package:flutter/material.dart';
+import 'package:movie_app/Features/Home/presentation/providers/home_movies_provider.dart';
+import 'package:movie_app/Features/Splash/presentation/views/widgets/fade_scale_text.dart';
+import 'package:movie_app/core/extensions/navigation.dart';
+import 'package:movie_app/core/routes/routes.dart';
 import 'package:provider/provider.dart';
-import '../../../../Home/presentation/providers/home_movies_provider.dart';
-import '../../../../Home/presentation/views/home_view.dart';
-import 'fade_scale_text.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -23,13 +24,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
     initFadeScaleAnimation();
     navigateToHome();
-    Future.delayed(Duration.zero, () {
-      final homeProvider =
-          Provider.of<HomeMoviesProvider>(context, listen: false);
-      homeProvider.fetchNowShowingMovies();
-      homeProvider.fetchUpComingApiMovies();
-      homeProvider.fetchPopularMovies();
-    });
+    final homeProvider =
+        Provider.of<HomeMoviesProvider>(context, listen: false);
+
+    homeProvider.fetchNowShowingMovies();
+    homeProvider.fetchUpComingApiMovies();
+    homeProvider.fetchPopularMovies();
   }
 
   @override
@@ -47,10 +47,10 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
   void navigateToHome() {
-    Future.delayed(
-      const Duration(seconds: 3),
-      () => Navigator.pushReplacementNamed(context, HomeView.id),
-    );
+    Future.delayed(const Duration(seconds: 3), () {
+      if (!mounted) return;
+      context.pushReplacementNamed(Routes.homeView);
+    });
   }
 
   @override
