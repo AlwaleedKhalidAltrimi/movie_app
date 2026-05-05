@@ -7,12 +7,11 @@ class ApiHelper {
   static const _baseUrl = 'api.themoviedb.org';
 
   // Fetch movies from a specific endpoint with optional parameters
-  static Future<List<MovieModel>> fetchMovies(String endpoint,
-      {Map<String, String>? params}) async {
-    final queryParameters = {
-      'api_key': _apiKey,
-    };
-
+  static Future<List<MovieModel>> fetchMovies(
+    String endpoint, {
+    Map<String, String>? params,
+  }) async {
+    final queryParameters = {'api_key': _apiKey};
     if (params != null) {
       queryParameters.addAll(params);
     }
@@ -25,7 +24,8 @@ class ApiHelper {
       return data.map((e) => MovieModel.fromJson(e)).toList();
     } else {
       throw Exception(
-          'Failed to load movies. Status code: ${response.statusCode}');
+        'Failed to load movies. Status code: ${response.statusCode}',
+      );
     }
   }
 
@@ -52,7 +52,8 @@ class ApiHelper {
       }
     } else {
       throw Exception(
-          'Failed to load trailer. Status code: ${response.statusCode}');
+        'Failed to load trailer. Status code: ${response.statusCode}',
+      );
     }
   }
 }

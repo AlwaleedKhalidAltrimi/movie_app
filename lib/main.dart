@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/Features/Favorite/presentation/providers/favorite_provider.dart';
-import 'package:movie_app/Features/Home/presentation/providers/home_movies_provider.dart';
-import 'package:movie_app/Features/Splash/presentation/views/splash_view.dart';
-import 'package:movie_app/core/database/sqflite_database.dart';
-import 'package:movie_app/core/routes/app_router.dart';
 import 'package:provider/provider.dart';
+import 'Features/Favorite/presentation/providers/favorite_provider.dart';
+import 'Features/Home/presentation/providers/home_movies_provider.dart';
+import 'Features/Splash/presentation/views/splash_view.dart';
+import 'core/utils/app_routers.dart';
+import 'core/database/sqflite_database.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SqfliteDatabase.initialize();
+  await SqfliteDatabase.initialize(); // تهيئة قاعدة البيانات
 
   runApp(const MyApp());
 }
@@ -32,10 +32,9 @@ class MyApp extends StatelessWidget {
             elevation: 0,
             scrolledUnderElevation: 0,
           ),
-          scaffoldBackgroundColor: Colors.black,
         ),
         debugShowCheckedModeBanner: false,
-        onGenerateRoute: AppRouter().generateRoute,
+        routes: AppRoutes.routes,
         home: const SplashView(),
       ),
     );

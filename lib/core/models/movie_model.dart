@@ -1,76 +1,51 @@
 class MovieModel {
-  final bool? adult;
-  final String? backdropPath;
-  final List<int>? genreIds;
   final int id;
-  final String? title;
-  final String? originalLanguage;
-  final String? originalTitle;
-  final String? overview;
-  final double? popularity;
-  final String? posterPath;
-  final String? releaseDate;
-  final bool? softcore;
-  final bool? video;
-  final double? voteAverage;
-  final int? voteCount;
+  final String title;
+  final String posterPath;
+  final String overview;
+  final num voteAverage;
+  final int voteCount;
+  final String releaseDate;
+  final String language;
 
   MovieModel({
-    this.adult,
-    this.backdropPath,
-    this.genreIds,
     required this.id,
-    this.title,
-    this.originalLanguage,
-    this.originalTitle,
-    this.overview,
-    this.popularity,
-    this.posterPath,
-    this.releaseDate,
-    this.softcore,
-    this.video,
-    this.voteAverage,
-    this.voteCount,
+    required this.title,
+    required this.posterPath,
+    required this.overview,
+    required this.voteAverage,
+    required this.voteCount,
+    required this.releaseDate,
+    required this.language,
   });
 
   factory MovieModel.fromJson(Map<String, dynamic> json) {
     return MovieModel(
-      adult: json['adult'] as bool?,
-      backdropPath: json['backdrop_path'] as String?,
-      genreIds:
-          (json['genre_ids'] as List<dynamic>?)?.map((e) => e as int).toList(),
-      id: json['id'] as int? ?? 0,
-      title: json['title'] as String?,
-      originalLanguage: json['original_language'] as String?,
-      originalTitle: json['original_title'] as String?,
-      overview: json['overview'] as String?,
-      popularity: (json['popularity'] as num?)?.toDouble(),
-      posterPath: json['poster_path'] as String?,
-      releaseDate: json['release_date'] as String?,
-      softcore: json['softcore'] as bool?,
-      video: json['video'] as bool?,
-      voteAverage: (json['vote_average'] as num?)?.toDouble(),
-      voteCount: json['vote_count'] as int?,
+      id: json['id'],
+      title: json['title'] ?? '',
+      posterPath: 'https://image.tmdb.org/t/p/w500${json['poster_path']}',
+      overview: json['overview'] ?? '',
+      voteAverage: (json['vote_average'] ?? 0).toDouble(),
+      voteCount: (json['vote_count'] ?? 0),
+      releaseDate: json['release_date'] ?? '',
+      language: json['original_language'] ?? 'en',
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'adult': adult,
-      'backdrop_path': backdropPath,
-      'genre_ids': genreIds,
       'id': id,
       'title': title,
-      'original_language': originalLanguage,
-      'original_title': originalTitle,
+      'posterPath': posterPath,
       'overview': overview,
-      'popularity': popularity,
-      'poster_path': posterPath,
-      'release_date': releaseDate,
-      'softcore': softcore,
-      'video': video,
-      'vote_average': voteAverage,
-      'vote_count': voteCount,
+      'voteAverage': voteAverage,
+      'voteCount': voteCount,
+      'releaseDate': releaseDate,
+      'language': language,
     };
+  }
+
+  String formatNumber(double number) {
+    return number.toStringAsFixed(1); // returns as string with 1 decimal
   }
 }
